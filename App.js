@@ -29,7 +29,7 @@ const [key,setKey]= useState(0);
         renderItem={
           ({item})=>{
             return(
-              <TaskCard  text={item.text}  />
+              <TaskCard  text={item.text} array ={taskArray} setArray={setTasArray} keyy={item.key} />
 
             );
           }

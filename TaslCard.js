@@ -5,7 +5,11 @@ const TaskCard =(props)=>{
 
 
 const Deletetask=()=>{
-    console.log("deleted");
+    let arr = props.array.filter((item)=>{
+       return item.key!==props.keyy
+    })
+    props.setArray(arr)
+
 }
     return(
         <View style={styles.card}>
