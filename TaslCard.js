@@ -9,7 +9,15 @@ const Deletetask=()=>{
        return item.key!==props.keyy
     })
     props.setArray(arr)
-
+}
+const changeChecked=()=>{
+    let arr = props.array.map((item)=>{
+        if(item.key===props.keyy){
+            item.checked=!item.checked
+        }
+        return item;
+    })
+    props.setArray(arr)
 }
     return(
         <View style={styles.card}>
@@ -23,8 +31,10 @@ const Deletetask=()=>{
                 })
               }
             /> */}
-            <TouchableOpacity style={styles.checkBox}></TouchableOpacity>
-            <Text style={{maxWidth:"75%"}}>{props.text}</Text>
+            <TouchableOpacity style={styles.checkBox} onPress={changeChecked} >
+                {props.checked?<Text style={{textAlign:"center"}}>✔</Text>:null}
+            </TouchableOpacity>
+            <Text style={props.checked?styles.checked:styles.unchecked}>{props.text}</Text>
 
             </View>
             <View>
@@ -61,6 +71,13 @@ const styles= StyleSheet.create({
         borderWidth:1,
         marginRight:20
 
+    },
+    checked:{
+        textDecorationLine:"line-through",
+        maxWidth:"75%"
+    },
+    unchecked:{
+        maxWidth:"75%"
     }
 
 });

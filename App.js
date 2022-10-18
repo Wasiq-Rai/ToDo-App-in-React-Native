@@ -29,7 +29,7 @@ const [key,setKey]= useState(0);
         renderItem={
           ({item})=>{
             return(
-              <TaskCard  text={item.text} array ={taskArray} setArray={setTasArray} keyy={item.key} />
+              <TaskCard  text={item.text} array ={taskArray} setArray={setTasArray} keyy={item.key} checked={item.checked}/>
 
             );
           }
@@ -43,6 +43,7 @@ const [key,setKey]= useState(0);
           <View style={styles.inputView}>
             <TextInput style={styles.placeholder}
             placeholder='Type Here' onChangeText={text=> setTask({
+              checked:false,
               key: key ,
               text:text
 
